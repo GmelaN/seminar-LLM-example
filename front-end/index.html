@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text summerizer</title>
+</head>
+<body>
+    <h1>세 줄 요약 서비스</h1>
+    <input id="input" type="text" autofocus />
+    <button onclick="sendMessage()">Send</button>
+    <ul id="messages"></ul>
+    <script>
+        var ws = new WebSocket("ws://localhost:8000/ws");
+        ws.onmessage = function(event) {
+            var messages = document.getElementById('messages');
+            var content = document.createTextNode(event.data);
+            messages.appendChild(content);
+        };
+
+        function sendMessage() {
+            var input = document.getElementById('input');
+            ws.send(input.value);
+            input.value = '';
+        }
+    </script>
+</body>
+</html>
