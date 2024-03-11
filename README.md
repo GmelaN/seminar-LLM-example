@@ -5,6 +5,9 @@
 - ubuntu 23.10 AMD64
 - GTX 1650 4GB
 - Intel i7 13th & 16GB RAM
+- conda >= 24.1.2
 - Ollama >= 0.1.28
 - llama2:13b
-- FastAPI 
+- FastAPI >= 0.110.0
+- uvicorn >= 0.27.1
+- websockets >= 12.0
